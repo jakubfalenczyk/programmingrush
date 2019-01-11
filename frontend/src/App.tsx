@@ -1,22 +1,32 @@
-import * as React from 'react';
-import './App.css';
+import * as React from "react"
+import { withStyles, WithStyles } from "@material-ui/core/styles"
+import { AppBar, IconButton, Toolbar, Typography, Button } from "@material-ui/core"
+import { Menu } from "@material-ui/icons"
 
-import logo from './logo.svg';
+import { styles } from "./App.styles" 
 
-class App extends React.Component {
-  public render() {
+interface IAppProps extends WithStyles<typeof styles> {}
+
+class App extends React.Component<IAppProps> {
+  render() {
+    const { classes } = this.props
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+              <Menu/>
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              News
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App)
