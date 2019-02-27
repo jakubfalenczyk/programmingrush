@@ -6,8 +6,10 @@
         "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
     },
     "jsx-self-close": false,
+    "jsx-boolean-value": false,
     "member-access": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
+    "jsx-no-lambda": false
   }
 }
